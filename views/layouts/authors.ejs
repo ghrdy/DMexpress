@@ -1,0 +1,13 @@
+<div>
+  <p><big>Author List</big></p>
+  <% locals.authors.forEach(element => {%>
+  <ul>
+    <li>
+      <a href="/authors/<%=element.first_name%>-<%= element.family_name%>"
+        ><%= element.first_name %> ,<%= element.family_name %></a
+      >(<%= element.date_of_birth %> - <%= element.date_of_death %>)
+    </li>
+  </ul>
+
+  <%}) %>
+</div>

@@ -1,0 +1,34 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+first-sidebar-nav {
+  list-style: none;
+}
+li {
+  list-style: none;
+}
+
+nav {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+  width: 15rem;
+}
+
+body > wrapper > div > li {
+  list-style: disc;
+}
+
+wrapper {
+  display: flex;
+}
+body > wrapper > div > ul > li {
+  list-style: disc;
+}
+body > wrapper > div > ul > li {
+  list-style: disc;
+}

@@ -1,0 +1,66 @@
+###
+//GET ALL AUTHORS
+GET http://localhost:3000/authors
+
+
+###
+//GET ALL BOOKS
+GET http://localhost:3000/books
+
+
+###
+//ADD USERS
+POST http://localhost:3000/books/addBook
+Content-Type: application/json
+
+{
+    "title" : "un livre",
+    "author" : "Dupont",
+    "summary" : "super nul",
+    "isbn" : 1234
+}
+###
+POST http://localhost:3000/books/addBook
+Content-Type: application/json
+
+{
+    "title" : "Autre Livre",
+    "author" : "Paspapapa",
+    "summary" : "super nul",
+    "isbn" : 12345
+}
+
+
+
+###
+//ADD AUTHORS
+POST http://localhost:3000/authors/addAuthor
+Content-Type: application/json
+
+{
+    "first_name" : "Denis",
+    "family_name" : "Dupont",
+    "date_of_birth" : "24/10/2003"
+}
+###
+POST http://localhost:3000/authors/addAuthor
+Content-Type: application/json
+
+{
+    "first_name" : "Dedé",
+    "family_name" : "Pas",
+    "date_of_birth" : "24/10/2003"
+}
+###
+DELETE http://localhost:3000/books/656e3cc08b426c92e3246929
+
+###
+//DELETE
+DELETE http://localhost:3000/authors/656e3cc08b426c9
+###
+DELETE http://localhost:3000/authors/656e4a0b6d0adc65f365c803
+
+
+###
+//SEARCH
+GET http://localhost:3000/authors/search?searchTerm=pas

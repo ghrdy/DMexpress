@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('layouts/header'); -%>
+  <body>
+    <wrapper>
+      <%- include('layouts/nav'); -%> <% if(pageTitle == "Library"){%>
+      <div class="content">
+        <p>
+          <big>Local Library Home</big><br />
+          Welcome to <i>LocalLibrary</i>, a very basic website developed as a
+          tutorial.
+        </p>
+        <p>
+          <big>Dynamic content</big><br />
+          The library has the following record counts:
+        </p>
+        <li><b>Authors</b> : <%= locals.authorcount || 'Aucun Auteur.' %></li>
+        <li><b>Books</b> : <%= locals.bookcount || 'Aucun Livre' %></li>
+      </div>
+    </wrapper>
+    <% } %> <% if(pageTitle == "Books"){%> <%-include('layouts/books');-%> <%
+    }%> <% if(pageTitle == "Authors"){%> <%-include('layouts/authors');-%> <%
+    }%>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+<div class="=bookcontainer">
+  <p><big>Book List</big></p>
+  <% locals.books.forEach(element => {%>
+  <ul>
+    <li>
+      <a href="/books/<%=element.title%>"><%= element.title %></a> (<%=
+      element.author %>)
+    </li>
+  </ul>
+  <%}); %>
+</div>
