@@ -21,5 +21,19 @@
     <% } %> <% if(pageTitle == "Books"){%> <%-include('layouts/books');-%> <%
     }%> <% if(pageTitle == "Authors"){%> <%-include('layouts/authors');-%> <%
     }%>
+
+
+    <% if(pageTitle == "addBook"){%> <%-include('layouts/addbookform');-%> <%
+    }%>
+    <% if(pageTitle == "addAuthor"){%> <%-include('layouts/addauthorform');-%> <%
+    }%>
+    <% if(pageTitle == "SingleBook"){%> <%-include('layouts/singlebook');-%> <%
+    }%>
+
+    <% if(pageTitle == "SingleAuthor"){%> <%-include('layouts/singleauthor');-%> <%
+    }%>
+
+
+    
   </body>
 </html>

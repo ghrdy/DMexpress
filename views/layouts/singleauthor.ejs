@@ -1,0 +1,11 @@
+<div>
+  <p><big>Auteur :</big></p>
+  <%= locals.author.first_name%> <%= locals.author.family_name%>
+  <ul>
+    <li>Date de Naissance : <%= locals.author.date_of_birth%></li>
+    <% if(locals.author.date_of_death){ %>
+    <li>Date de Deces : <%= locals.author.date_of_death%></li>
+    <% } %>
+  </ul>
+  <%-include('books');-%>
+</div>

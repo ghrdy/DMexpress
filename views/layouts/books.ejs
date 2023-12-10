@@ -1,11 +1,22 @@
 <div class="=bookcontainer">
-  <p><big>Book List</big></p>
+  <% if(locals.author){ %>
+  <p><big>Oeuvres de cet Auteur</big></p>
   <% locals.books.forEach(element => {%>
   <ul>
+    <%
+    if(element.author==(locals.author.first_name+'-'+locals.author.family_name)){
+    %>
     <li>
-      <a href="/books/<%=element.title%>"><%= element.title %></a> (<%=
-      element.author %>)
+      <a href="/books/<%=element.title%>"><%= element.title %></a>
     </li>
+    <% }%>
   </ul>
-  <%}); %>
+  <%}); %> <% } else{ %>
+  <p><big>Book List</big></p>
+  <ul>
+    <% locals.books.forEach(element => {%>
+    <li><a href="/books/<%=element.title%>"><%= element.title %></a></li>
+    <% })%>
+  </ul>
+  <% } %>
 </div>

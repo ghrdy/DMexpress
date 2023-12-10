@@ -1,15 +1,20 @@
 const express = require("express");
 const router = express.Router();
 const Book = require("../models/Book");
+const Author = require("../models/Author");
 
-router.post("/addBook", async (req, res) => {
+router.get("/addBook", async (req, res) => {
   try {
-    console.log("req : " + req.body);
-    const newBook = new Book(req.body);
-    await newBook.save().then((savedBook) => {
-      console.log(savedBook);
-      res.status(201).json({ msg: "Livre Créé" });
-    });
+    await Author.find().then((authors) => {
+    
+    //const newBook = new Book(req.body);
+    //await newBook.save().then((savedBook) => {
+      //console.log(savedBook);
+      res.render("index", { pageTitle: "addBook",authors:authors });
+      //res.status(201).json({ msg: "Livre Créé" });
+    //})
+    })
+    ;
   } catch (error) {
     console.log(error);
     if (error.code === 11000 && error.keyPattern && error.keyPattern.isbn) {
@@ -42,7 +47,8 @@ router.get("/:id", async (req, res) => {
     await Book.findOne({ title: id })
       .then((book) => {
         console.log(book);
-        res.status(200).json({ book: book });
+        res.render("index",{pageTitle:"SingleBook",book:book});
+        //res.status(200).json({ book: book });
       })
       .catch((error) => {
         console.log(error);
@@ -69,6 +75,40 @@ router.delete("/:id", async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(500).json({ msg: "impossible de delete ce livre" });
+  }
+});
+
+
+
+
+router.post("/addBook", async (req, res) => {
+  try {
+    console.log(req.body)
+    const newBook = new Book({
+      title: req.body.title,
+      author:req.body.author,
+      summary:req.body.resume,
+      isbn:req.body.isbn
+    });
+    await newBook.save().then(async (savedBook) => {
+
+      await Book.find().then((books) => { 
+        console.log(savedBook);
+        res.render("index", { pageTitle: "Books",books : books });
+      })
+    
+    //res.status(201).json({ msg: "Livre Créé" });
+    });
+
+  } catch (error) {
+    console.log(error);
+    if (error.code === 11000 && error.keyPattern && error.keyPattern.isbn) {
+      res.status(500).json({ msg: "Livre déja existant" });
+    } else {
+      res
+        .status(500)
+        .json({ msg: "impossible de créer un nouveau livre, erreur inconnue" });
+    }
   }
 });
 module.exports = router;

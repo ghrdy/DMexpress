@@ -25,8 +25,8 @@ Content-Type: application/json
 
 {
     "title" : "Autre Livre",
-    "author" : "Paspapapa",
-    "summary" : "super nul",
+    "author" : "Hrdy",
+    "summary" : "moyen",
     "isbn" : 12345
 }
 
@@ -40,15 +40,15 @@ Content-Type: application/json
 {
     "first_name" : "Denis",
     "family_name" : "Dupont",
-    "date_of_birth" : "24/10/2003"
+    "date_of_birth" : "11/02/1972"
 }
 ###
 POST http://localhost:3000/authors/addAuthor
 Content-Type: application/json
 
 {
-    "first_name" : "Dedé",
-    "family_name" : "Pas",
+    "first_name" : "Tim",
+    "family_name" : "Hrdy",
     "date_of_birth" : "24/10/2003"
 }
 ###

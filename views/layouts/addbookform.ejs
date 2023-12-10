@@ -1,0 +1,38 @@
+<form action="http://localhost:3000/books/addBook" method="post">
+  <div class="form-group">
+    <label for="title">Nom du livre</label>
+    <input name="title" type="text" required class="form-control" id="title" />
+  </div>
+  <div class="form-group">
+    <label for="author">Auteur</label>
+    <select name="author" id="author">
+      <option value="">Choisissez un Auteur</option>
+      <% locals.authors.forEach(element => {%>
+      <option
+        name="authorfor"
+        value="<%=element.first_name%>-<%=element.family_name%>"
+        id="authorfor"
+      >
+        <%=element.first_name%>-<%=element.family_name%>
+      </option>
+      <% })%>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="resume">Résumé</label>
+    <input
+      type="text"
+      name="resume"
+      required
+      class="form-control"
+      id="resume"
+    />
+  </div>
+  <div class="form-group">
+    <label for="isbn">ISBN</label>
+    <input type="text" name="isbn" required class="form-control" id="isbn" />
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

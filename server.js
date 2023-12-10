@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const app = express();
 app.use(express.json());
 app.set("view engine", "ejs");
-
+app.use(express.urlencoded({ extended: true })); 
 async function main() {
   try {
     await mongoose.connect("mongodb://127.0.0.1:27017/Library");

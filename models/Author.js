@@ -10,7 +10,6 @@ const AuthorSchema = new Schema({
   },
   family_name: {
     type: String,
-    unique: true,
     required: [true, "Le nom est requis"],
     minLength: 1,
     maxLength: 20,
